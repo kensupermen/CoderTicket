@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CsTemplate</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>CsTemplate</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="<%= login_path %>">Log In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= sign_up_path %>">Sign Up</a>
-      </li>
-    </ul>
-  </nav>  
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
+      <ul class="nav navbar-nav">
 
-<%= yield %>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Create event",new_event_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout",new_event_path, class: "nav-link" %>
+          </li>
 
-</body>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= login_path %>">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= sign_up_path %>">Sign Up</a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>  
+
+    <%= yield %>
+
+  </body>
 </html>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   resources :users
   resources :events do
+    member do
+      get 'preview'
+      post 'publish'
+    end
     resources :tickets
   end
 
