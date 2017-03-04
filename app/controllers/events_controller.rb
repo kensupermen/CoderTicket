@@ -21,10 +21,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.create event_params
     if @event.save
-      redirect_to event_path(@event.id)
+      redirect_to preview_event_path(@event.id)
     else
       redirect_to new_event_path
     end
+  end
+
+  def list
+    @events = current_user.events
   end
 
   def preview

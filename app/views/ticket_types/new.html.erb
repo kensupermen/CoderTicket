@@ -1,0 +1,13 @@
+<div class="container" style="margin-top:100px">
+    
+  <h1>Create Ticket Type</h1>
+  <h4>Event name: <%= @event.name %></h4>
+  <%= simple_form_for @ticket_type, url: event_ticket_types_path do |f| %>
+    <%= f.input :name,  class: 'form-control'%>
+    <%= f.input :price,  class: 'form-control'%>
+    <%= f.input :max_quantity,  class: 'form-control' %>
+    <%= f.input :event_id, as: :hidden, input_html: {value: @event.id} %>
+
+    <%= f.submit "Create ticket type", class: 'btn btn-primary' %>
+  <% end %>
+</div>

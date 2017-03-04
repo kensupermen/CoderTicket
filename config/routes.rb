@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'venues/new'
+
   root 'events#index'
   
   resources :sessions, only: [:create]
@@ -9,8 +11,9 @@ Rails.application.routes.draw do
       post 'publish'
     end
     resources :tickets
+    resources :ticket_types
   end
-
+  get 'list_events' => 'events#list'
   get "upcoming" => "events#index"
   post 'search_events' => 'events#search'
   get 'sign_up' => 'users#new'

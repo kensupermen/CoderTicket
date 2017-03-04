@@ -1,3 +1,5 @@
 class User < ApplicationRecord
-  has_many :event
+  has_secure_password
+  has_many :events, foreign_key: 'creator_id', class_name: 'Event'
+  validates :email, uniqueness: true
 end
