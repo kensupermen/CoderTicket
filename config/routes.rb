@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   get "upcoming" => "events#index"
-  get 'search_events' => 'events#search'
+  post 'search_events' => 'events#search'
   get 'sign_up' => 'users#new'
   get 'login' => 'sessions#new'
 

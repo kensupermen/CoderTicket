@@ -1,14 +1,18 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ken/git-project/CoderTicket/spec/controllers/users_controller_spec.rb": [
+      "/home/ken/git-project/CoderTicket/spec/controllers/events_controller_spec.rb": [
         1,
         null,
         1,
         null,
         1,
+        1,
+        1,
         null,
         null,
+        1,
+        1,
         null,
         null
       ],
@@ -657,33 +661,24 @@
         1,
         null
       ],
-      "/home/ken/git-project/CoderTicket/app/controllers/users_controller.rb": [
+      "/home/ken/git-project/CoderTicket/app/controllers/events_controller.rb": [
+        1,
         1,
         null,
         1,
-        0,
         null,
         null,
         1,
         0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
         null,
         null,
         1,
         null,
         null,
         1,
-        null,
-        1,
         0,
         null,
+        0,
         null,
         null
       ],
@@ -693,8 +688,23 @@
         null,
         1,
         null
+      ],
+      "/home/ken/git-project/CoderTicket/app/models/event.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1488590915
+    "timestamp": 1488592512
   }
 }

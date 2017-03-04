@@ -1,16 +1,13 @@
 <div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
   <div class="container">
     <h2> Discover upcoming events </h2>
-    <form>
     <%= form_tag search_events_path, method: 'post' do %>
       <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for events, shows, courses..."%>      
-      <%= submit_tag :search %>
     <% end %>
-    </form>
   </div>
 </div>
 <div class="container-fluid events-list">
-    <% @events.in_groups_of(3) do |g| %>
+    <% @events.in_groups_of(4) do |g| %>
       <div class="row">
         <% g.compact.each do |e| %>
             <%= render partial: 'card', locals: {event: e} %>
