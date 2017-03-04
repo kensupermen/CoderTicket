@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
   root 'events#index'
-
+  
+  resources :sessions, only: [:create]
+  resources :users
   resources :events do
     resources :tickets
   end
+
+  get "upcoming" => "events#index"
+  get 'search_events' => 'events#search'
+  get 'sign_up' => 'users#new'
+  get 'login' => 'sessions#new'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

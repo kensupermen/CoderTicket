@@ -1,0 +1,10 @@
+<div class="container" style="margin-top:100px">
+  <h1>Register</h1>
+
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.submit "Register", class: 'btn btn-primary' %>
+  <% end %>
+</div>
