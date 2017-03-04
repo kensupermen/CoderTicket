@@ -27,6 +27,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find_by id: params[:id]
+    @venues = Venue.all
+    @categories = Category.all
+  end
+
+  def update
+    @event = Event.find_by id: params[:id]
+    @event.update event_params
+    redirect_to list_events_path
+  end
+
   def list
     @events = current_user.events
   end
@@ -40,6 +52,11 @@ class EventsController < ApplicationController
 
   def publish
     @event = Event.find_by(id: params[:id], creator_id: current_user.id)
+    ticket_type = TicketType.find_by event_id: @event.id
+    if ticket_type == nil
+      flash[:error] = "Please create ticket type first"
+      redirect_to new_event_ticket_type_path(@event) and return
+    end
     @event.update published_at: Time.now
     redirect_to event_path(@event)
   end
