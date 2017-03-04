@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'venues/new'
-
+  resources :order_details
+  resources :orders
   root 'events#index'
   
   resources :sessions, only: [:create]
   resources :users
+  resources :venues
   resources :events do
     member do
       get 'preview'

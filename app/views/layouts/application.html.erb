@@ -22,6 +22,10 @@
           </li>
 
           <li class="nav-item">
+            <%= link_to "Create Venues",  new_venue_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
             <%= link_to "Logout", new_event_path, class: "nav-link" %>
           </li>
 
@@ -36,6 +40,11 @@
       </ul>
     </nav>  
 
+    <% if flash.any? %>
+      <div style="margin-top: 100px;">
+        <%= flash_messages %>
+      </div>
+    <% end %>
     <%= yield %>
 
   </body>
