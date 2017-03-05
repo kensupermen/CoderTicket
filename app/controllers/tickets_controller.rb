@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
     
     @order.total_price = total_price_calc
     if @order.save
-      flash.now[:success] = "Buy success"
+      flash[:success] = "Buy success"
       redirect_to root_path
     else
       flash[:error] = @order.errors.full_messages.to_sentence
