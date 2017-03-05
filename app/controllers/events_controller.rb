@@ -21,8 +21,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.create event_params
     if @event.save
+      flash[:success] = "Create success"
       redirect_to preview_event_path(@event.id)
     else
+      flash[:error] = "Create error"
       redirect_to new_event_path
     end
   end

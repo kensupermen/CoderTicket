@@ -44,10 +44,14 @@ gem 'font-kit-rails', '~> 1.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'capybara', '~> 2.10', '>= 2.10.1'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'simplecov', '~> 0.12.0', require: false
   gem 'guard-rspec', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :development do

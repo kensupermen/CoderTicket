@@ -7,6 +7,12 @@ class TicketTypesController < ApplicationController
 
   def create
     @ticket_type = TicketType.create ticket_type_params
+
+    if @ticket_type.persisted?
+      flash[:success] = "Create success"
+    else
+      flash[:error] = "Create error"
+    end
     redirect_to new_event_ticket_type_path
   end
 

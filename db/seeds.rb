@@ -27,6 +27,7 @@ e = Event.create({
   venue: dalat,
   category: Category.find_by(name: 'Everything Else'),
   hero_image_url: 'https://media.ticketbox.vn/eventcover/2015/10/25/C6A1A5.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
+  published_at: Time.now,
   extended_html_description: <<-DESC
     <p style="text-align:center"><span style="font-size:20px">VIỆT NAM THỬ THÁCH CHIẾN THẮNG 2016</span></p>
     <p style="text-align:center"><span style="font-size:20px">Giải đua xe đạp địa hình 11-13/03/2016</span></p>
@@ -55,6 +56,7 @@ e = Event.create({
   starts_at: DateTime.parse('Sat, 16 Jan 2016, 8:00 PM+0700'),
   ends_at: DateTime.parse('Sat, 16 Jan 2016, 10:30 PM+0700'),  
   hero_image_url: 'https://media.ticketbox.vn/eventcover/2015/12/11/C68636.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
+  published_at: Time.now,
   extended_html_description: <<-DESC
   <p style="text-align:justify"> </p>
 
@@ -137,6 +139,7 @@ e = Event.create({
   ends_at: DateTime.parse('Thu, 24 Dec 2015, 11:00 PM+0700'),
   venue: gap,
   category: Category.find_by(name: 'Entertainment'),
+  published_at: Time.now,
   hero_image_url:'https://media.ticketbox.vn/eventcover/2015/12/12/78534E.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
   extended_html_description: <<-DESC
          <p>
