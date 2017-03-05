@@ -5,6 +5,11 @@ class TicketsController < ApplicationController
 
   def create
     @event = Event.find_by(id: params[:event_id])
+    if @event.is_out_of_date?
+      flash[:error] = "Booking closed! The event is started"
+      #render 'new'
+      redirect_to new_event_ticket_path and return
+    end
     @order= Order.new(event: @event)
 
     ticket_quantity = params[:ticket_quantity]
@@ -12,7 +17,7 @@ class TicketsController < ApplicationController
     if ticket_quantity.count > 10 
       flash[:error] = "Can not buy more than 10 ticket"
       render 'new' and return
-    render 
+      render 
     end
     ticket_quantity.each do |ticket_type_id, quantity|
       ticket_type = TicketType.select(:id, :price, :max_quantity).find_by(id: ticket_type_id)
@@ -24,7 +29,7 @@ class TicketsController < ApplicationController
       order_detail = OrderDetail.new ticket_type_id: ticket_type_id, quantity: quantity
       @order.order_details << order_detail 
     end
-    
+
     @order.total_price = total_price_calc
     if @order.save
       flash[:success] = "Buy success"

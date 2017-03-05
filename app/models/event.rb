@@ -14,4 +14,17 @@ class Event < ActiveRecord::Base
   def self.published
     @events = Event.all.where.not(published_at: nil)
   end
+
+  def self.search_by_name(name)
+    where("lower(name) LIKE ?", "%#{name.downcase}%")
+  end
+
+  def is_out_of_date?
+    starts_at < Time.now
+  end
+
+  def venue_name
+    venue ? venue.name : nil
+  end
+
 end
